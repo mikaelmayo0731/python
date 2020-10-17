@@ -1,4 +1,4 @@
-import random
+import random, time
 
 choices = ["rock", "paper", "scissors"]
 playerScore = 0
@@ -21,14 +21,13 @@ while True:
 
 while True:
     if playerScore >= score or computerScore >= score:
-        if playerScore >= 3:
+        if playerScore >= score:
             gameResult = "won"
         else:
             gameResult = "lost"
         print(f"Your score: {playerScore}")
         print(f"Computer score: {computerScore}")
-        playAgain = input(f"You {gameResult} the game! Play again? (y) or (n): ")
-        playAgain = playAgain.lower().replace(" ", "")
+        playAgain = input(f"You {gameResult} the game! Play again? (y) or (n): ").lower().replace(" ", "")
         if playAgain == "y":
             playerScore = 0
             computerScore = 0
@@ -52,8 +51,8 @@ while True:
         print(f"Your score: {playerScore}")
         print(f"Computer score: {computerScore}")
         computerChoice = random.choice(choices)
-        playerChoice = input("Enter your choice: ")
-        playerChoice = playerChoice.lower().replace(" ", "")
+        playerChoice = input("Enter your choice: ").lower().replace(" ", "")
+        time.sleep(.5)
         if playerChoice == computerChoice:
             print(f"The computer chose {computerChoice}, it's a draw!")
         elif playerChoice == "rock":
