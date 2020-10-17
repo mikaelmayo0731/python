@@ -3,12 +3,24 @@ import random
 choices = ["rock", "paper", "scissors"]
 playerScore = 0
 computerScore = 0
+score = 0
+
 
 print("Let's play Rock, Paper, Scissors!")
-print("First to 3 wins.")
 
 while True:
-    if playerScore >= 3 or computerScore >= 3:
+    try:
+        score = int(input("Enter the score you want to play to: "))
+    except ValueError:
+        print("Invalid entry!")
+        continue
+    if score <= 0:
+        print("Score must be higher than 0.")
+    else:
+        break
+
+while True:
+    if playerScore >= score or computerScore >= score:
         if playerScore >= 3:
             gameResult = "won"
         else:
@@ -20,6 +32,16 @@ while True:
         if playAgain == "y":
             playerScore = 0
             computerScore = 0
+            while True:
+                try:
+                    score = int(input("Enter the score you want to play to: "))
+                except ValueError:
+                    print("Invalid entry!")
+                    continue
+                if score <= 0:
+                    print("Score must be higher than 0.")
+                else:
+                    break
         elif playAgain == "n":
             print("Thank you for playing!")
             break
@@ -57,9 +79,3 @@ while True:
                 playerScore += 1
         else:
             print("Invalid choice!")
-
-
-
-
-
-
