@@ -9,3 +9,4 @@ with open("names.csv", "r") as csv_file:
         for line in csv_reader:
             if line[1] == "Stuart":
                 csv_writer.writerow(line)
+                #hi
